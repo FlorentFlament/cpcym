@@ -1,4 +1,6 @@
-# Amstrad CPC 6128 Hello World
+# Amstrad CPC 6128 YM music files player
+
+This is a work in progress
 
 ## Compiling
 
