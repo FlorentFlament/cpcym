@@ -3,14 +3,17 @@
 
 #include "cpclib.h"
 
-#define VSYNC_PER_SEC 50 /* Normally 50 VSYNC triggers per second */
+extern char TINTRO1;
 
 void main() {
-  char i, j;
-  for (j=0; j<20; j++) {
-    for (i=0; i<VSYNC_PER_SEC; i++) {
-      wait_vsync_rising_edge();
-    }
+  int i;
+  char* song = &TINTRO1;
+
+  printf("Starting..\n");
+  for (i=0; i<1152; i++) {
+    wait_vsync_rising_edge();
+    update_psg(song);
+    song += 14;
   }
-  printf("\nT = %d\n", j);
+  printf("Done !\n");
 }
