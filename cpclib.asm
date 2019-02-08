@@ -35,8 +35,16 @@
     inc hl
     inc d
     ld a, d
-    cp 14
+    cp 13
     jr nz, upsg_loop
+
+    ; Register 13 special case
+    ld a, (hl)
+    cp $ff
+    jr z, upsg_end
+    ld c, 13
+    call write_to_psg ; Only if value is not $ff
+.upsg_end
     ret
 
 ;; Source: http://www.cpcwiki.eu/index.php/How_to_access_the_PSG_via_PPI
