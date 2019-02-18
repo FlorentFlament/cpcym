@@ -1,6 +1,6 @@
 CMD=zcc +cpc -lndos -lm -subtype=dsk -create-app
 
-main.dsk: main.c ymlib.asm cpclib.asm song.asm
+main.dsk: main.c ymlib.asm cpcymlib.asm song.asm
 	${CMD} -o main $^
 
 clean:

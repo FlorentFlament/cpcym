@@ -1,7 +1,6 @@
 #include <stdio.h>
-#include <cpc.h>
 
-#include "cpclib.h"
+#include "cpcymlib.h"
 
 extern char TINTRO1;
 
