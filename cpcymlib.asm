@@ -57,15 +57,15 @@
 ;; PPI port A and PPI port C are setup in output mode.
 .write_to_psg
     ld b, $f4            ; setup PSG register number on PPI port A
-    out (c),c           ;
+    out (c),c            ;
     ld bc, $f6c0         ; Tell PSG to select register from data on PPI port A
-    out (c),c           ;
+    out (c),c            ;
     ld bc, $f600         ; Put PSG into inactive state.
-    out (c),c           ;
+    out (c),c            ;
     ld b, $f4            ; setup register data on PPI port A
-    out (c),a           ;
+    out (c),a            ;
     ld bc, $f680         ; Tell PSG to write data on PPI port A into selected register
-    out (c),c           ;
+    out (c),c            ;
     ld bc, $f600         ; Put PSG into inactive state
-    out (c),c           ;
+    out (c),c            ;
     ret
