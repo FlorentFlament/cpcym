@@ -2,11 +2,11 @@
 
 #include "cpcymlib.h"
 
-extern char TINTRO1;
+extern char TINTRO1[];
 
 void main() {
   int i;
-  char* song = &TINTRO1;
+  char* song = TINTRO1;
 
   printf("Starting..\n");
   for (i=0; i<1152; i++) {

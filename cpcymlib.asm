@@ -1,3 +1,5 @@
+    SECTION code_user
+
     PUBLIC _wait_vsync_rising_edge
     PUBLIC _update_psg
 

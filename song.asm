@@ -1,3 +1,5 @@
+	SECTION rodata_user
+
 	PUBLIC _TINTRO1
 ._TINTRO1
 	DEFB $8e, $00, $ef, $00, $38, $02, $00, $f8, $08, $07, $07, $00, $00, $00
