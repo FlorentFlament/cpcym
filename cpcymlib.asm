@@ -2,6 +2,18 @@
 
     PUBLIC _wait_vsync_rising_edge
     PUBLIC _update_psg
+    PUBLIC _c_write_to_psg
+
+    PUBLIC _cpcym_init
+    PUBLIC _cpcym_exit
+
+._cpcym_init
+    di ; Disable interrupts
+    ret
+
+._cpcym_exit
+    ei ; Enable interrupts
+    ret
 
 ;; no input
 ;; on exit:
@@ -48,6 +60,20 @@
     call write_to_psg ; Only if value is not $ff
 .upsg_end
     ret
+
+; void c_write_to_psg(char reg, char value) __z88dk_callee;
+; Input on stack
+; * top: register value
+; * top+1: register number
+; overwritten registers:
+; A, B, C, F
+._c_write_to_psg
+    pop hl
+    pop bc ; register value (or data)
+    ld a, c
+    pop bc ; regiser number
+    push hl
+    jp write_to_psg
 
 ;; Source: http://www.cpcwiki.eu/index.php/How_to_access_the_PSG_via_PPI
 ;; entry conditions:
