@@ -5,7 +5,7 @@ This is a work in progress
 ## Compiling
 
 ```
-docker run --rm -v ${PWD}:/src/ fflament/z88dk make
+docker run --rm -u $(id -u):$(id -g) -v ${PWD}:/src/ fflament/z88dk make
 ```
 
 ## Running
